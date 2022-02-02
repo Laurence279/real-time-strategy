@@ -7,7 +7,7 @@ public class UnitSelectionHandler : MonoBehaviour
 {
     [SerializeField] private LayerMask layerMask;
     private Camera mainCamera;
-    private List<Unit> selectedUnits = new List<Unit>();
+    public List<Unit> SelectedUnits { get; } = new List<Unit>();
 
     private void Start()
     {
@@ -39,9 +39,9 @@ public class UnitSelectionHandler : MonoBehaviour
 
         if(!unit.hasAuthority) { return; }
 
-        selectedUnits.Add(unit);
+        SelectedUnits.Add(unit);
 
-        foreach(Unit selectedUnit in selectedUnits)
+        foreach(Unit selectedUnit in SelectedUnits)
         {
             selectedUnit.Select();
         }
@@ -49,11 +49,11 @@ public class UnitSelectionHandler : MonoBehaviour
 
     private void DeselectUnits()
     {
-        foreach(Unit selectedUnit in selectedUnits)
+        foreach(Unit selectedUnit in SelectedUnits)
         {
             selectedUnit.Deselect();
         }
-        selectedUnits.Clear();
+        SelectedUnits.Clear();
     }
 
 
