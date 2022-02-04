@@ -28,14 +28,36 @@ public class UnitCommandHandler : MonoBehaviour
             return;
         }
 
+        if (hit.collider.TryGetComponent<Targetable>(out Targetable target))
+        {
+            if (target.hasAuthority)
+            {
+                TryMove(hit.point);
+                return;
+            }
+
+            TryTarget(target);
+            return;
+        }
+
         TryMove(hit.point);
+
     }
 
     private void TryMove(Vector3 point)
     {
-        foreach(Unit unit in unitSelectionHandler.SelectedUnits)
+        foreach (Unit unit in unitSelectionHandler.SelectedUnits)
         {
             unit.GetUnitMovement().CmdMove(point);
         }
     }
+
+    private void TryTarget(Targetable target)
+    {
+        foreach (Unit unit in unitSelectionHandler.SelectedUnits)
+        {
+            unit.GetTargeter().CmdSetTarget(target.gameObject);
+        }
+    }
 }
+

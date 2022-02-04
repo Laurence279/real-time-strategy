@@ -268,7 +268,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25274
+  m_Name: pb_Mesh34774
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1427,7 +1427,6 @@ GameObject:
   - component: {fileID: 1393936669}
   - component: {fileID: 1393936672}
   - component: {fileID: 1393936671}
-  - component: {fileID: 1393936670}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1455,23 +1454,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1393936670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1393936668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!114 &1393936671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1737,6 +1719,7 @@ MonoBehaviour:
   spawnPrefabs:
   - {fileID: 5974795757435510650, guid: 608ee619eaba70c4ba97272339df1dcd, type: 3}
   - {fileID: 8708465154392406838, guid: 1b94f1ba068ebf640b0751a9e44eb07f, type: 3}
+  - {fileID: 4352808155737680276, guid: dec5687344410bc4cb4ec87f4b23ff23, type: 3}
   unitSpawnerPrefab: {fileID: 8708465154392406838, guid: 1b94f1ba068ebf640b0751a9e44eb07f, type: 3}
 --- !u!4 &1923628796
 Transform:
