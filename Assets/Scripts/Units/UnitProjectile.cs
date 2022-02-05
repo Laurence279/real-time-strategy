@@ -12,7 +12,8 @@ public class UnitProjectile : NetworkBehaviour
 
     private void Start()
     {
-        rb.velocity = transform.forward * launchForce;
+        transform.Rotate(new Vector3(1, 0, 0), 90);
+        rb.velocity = transform.up * launchForce;
     }
 
     public override void OnStartServer()
