@@ -7,12 +7,13 @@ public class HealthDisplay : MonoBehaviour
 {
 
     [SerializeField] private Health health = null;
-   // [SerializeField] private GameObject healthBarParent = null;
+    [SerializeField] private GameObject healthBarParent = null;
     [SerializeField] private Image healthBarImage = null;
 
     private void Awake()
     {
         health.ClientOnHealthUpdated += HandleHealthUpdated;
+        healthBarParent.SetActive(true);
     }
 
     private void OnDestroy()

@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 5035672511909023945}
   - component: {fileID: 5612452685604428876}
   - component: {fileID: 3568534428588020256}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Unit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,6 +381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 5612452685604428876}
+  healthBarParent: {fileID: 6876527128341830962}
   healthBarImage: {fileID: 3618876088193385077}
 --- !u!1 &6133532430750357723
 GameObject:
@@ -579,6 +580,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 205ad2a93a49257468df9e88a742e933, type: 3}
+--- !u!1 &6876527128341830962 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4543505921855447595, guid: 205ad2a93a49257468df9e88a742e933, type: 3}
+  m_PrefabInstance: {fileID: 6945556048765075225}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8229410859097278093 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1321577785386957204, guid: 205ad2a93a49257468df9e88a742e933, type: 3}

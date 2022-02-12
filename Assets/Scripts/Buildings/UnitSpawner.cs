@@ -33,9 +33,13 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler
     [Command]
     private void CmdSpawnUnit()
     {
+        for(int i = 0; i < 5; i++)
+        {
         GameObject unitInstance = Instantiate(unitPrefab, spawnPoint.position, spawnPoint.rotation);
-
         NetworkServer.Spawn(unitInstance, connectionToClient);
+
+        }
+
 
     }
 

@@ -53,6 +53,12 @@ public class Unit : NetworkBehaviour
         ServerOnUnitDespawned?.Invoke(this);
     }
 
+
+
+    #endregion
+
+    #region Client
+
     public override void OnStartAuthority()
     {
         AuthorityOnUnitSpawned?.Invoke(this);
@@ -60,13 +66,9 @@ public class Unit : NetworkBehaviour
 
     public override void OnStopClient()
     {
-        if(!hasAuthority) { return; }
+        if (!hasAuthority) { return; }
         AuthorityOnUnitDespawned?.Invoke(this);
     }
-
-    #endregion
-
-    #region Client
 
     [Client]
     public void Select()

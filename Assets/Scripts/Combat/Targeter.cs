@@ -7,9 +7,20 @@ public class Targeter : NetworkBehaviour
 {
     [SerializeField] private Targetable target;
 
+
     public Targetable GetTarget()
     {
         return target;
+    }
+
+    public override void OnStartServer()
+    {
+        GameOverHandler.ServerOnGameOver += ServerHandleGameOver;
+    }
+
+    public override void OnStopServer()
+    {
+        GameOverHandler.ServerOnGameOver -= ServerHandleGameOver;
     }
 
     [Command]
@@ -24,6 +35,12 @@ public class Targeter : NetworkBehaviour
     public void ClearTarget()
     {
         target = null;
+    }
+
+    [Server]
+    private void ServerHandleGameOver()
+    {
+        ClearTarget();
     }
 }
 

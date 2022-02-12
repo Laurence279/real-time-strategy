@@ -22,11 +22,13 @@ public class UnitSelectionHandler : MonoBehaviour
         mainCamera = Camera.main;
         Unit.AuthorityOnUnitDespawned += AuthorityHandleUnitDespawned;
         Invoke(nameof(GetPlayer), 0.1f);
+        GameOverHandler.ClientOnGameOver += ClientHandleGameOver;
     }
 
     private void OnDestroy()
     {
         Unit.AuthorityOnUnitDespawned -= AuthorityHandleUnitDespawned;
+        GameOverHandler.ClientOnGameOver -= ClientHandleGameOver;
     }
 
     private void GetPlayer()
@@ -35,12 +37,12 @@ public class UnitSelectionHandler : MonoBehaviour
     }
     private void Update()
     {
-        if(player == null) { GetPlayer(); }
+        if (player == null) { GetPlayer(); }
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             //Start selecting units with draggable area
             StartSelectionArea();
-        }  
+        }
         else if (Mouse.current.leftButton.wasReleasedThisFrame)
         {
             ClearSelectionArea();
@@ -55,7 +57,7 @@ public class UnitSelectionHandler : MonoBehaviour
     {
         unitSelectionArea.gameObject.SetActive(false);
 
-        if(unitSelectionArea.sizeDelta.magnitude == 0)
+        if (unitSelectionArea.sizeDelta.magnitude == 0)
         {
             Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
             if (!Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerMask))
@@ -85,7 +87,7 @@ public class UnitSelectionHandler : MonoBehaviour
 
             Vector3 screenPosition = mainCamera.WorldToScreenPoint(unit.transform.position);
 
-            if(screenPosition.x > min.x && screenPosition.x < max.x && screenPosition.y > min.y && screenPosition.y < max.y)
+            if (screenPosition.x > min.x && screenPosition.x < max.x && screenPosition.y > min.y && screenPosition.y < max.y)
             {
                 SelectedUnits.Add(unit);
                 unit.Select();
@@ -111,10 +113,10 @@ public class UnitSelectionHandler : MonoBehaviour
             SelectedUnits.Clear();
         }
 
-       
+
 
         unitSelectionArea.gameObject.SetActive(true);
-        
+
         startDragPosition = Mouse.current.position.ReadValue();
 
         UpdateSelectionArea();
@@ -131,5 +133,9 @@ public class UnitSelectionHandler : MonoBehaviour
         unitSelectionArea.anchoredPosition = startDragPosition + new Vector2(areaWidth / 2, areaHeight / 2);
     }
 
+    private void ClientHandleGameOver(string winnerName)
+    {
+        enabled = false;
+    }
 
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1254934182811306602}
   - component: {fileID: 2479423069951846479}
   - component: {fileID: 7284649385512194845}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TankShell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
