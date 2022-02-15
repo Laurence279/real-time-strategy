@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class BuildingButton : MonoBehaviour, IPointerDownHandler
+public class BuildingButton : MonoBehaviour
 {
 
     [SerializeField] private Building building = null;
@@ -40,23 +40,18 @@ public class BuildingButton : MonoBehaviour, IPointerDownHandler
 
 
         UpdateBuildingPreview();
-        //PlaceBuilding();
+        PlaceBuilding();
     }
-    public void OnPointerDown(PointerEventData eventData)
+
+    public void Build()
     {
-
-        // Replace this method with a public method to be called on a button click if any errors with the OnPointerDown interface...
-
-       if(eventData.button != PointerEventData.InputButton.Left) { return; }
-
-        Debug.Log("Selected Button!");
         buildingPreview = Instantiate(building.GetBuildingPreview());
         buildingPreviewRenderer = buildingPreview.GetComponentInChildren<Renderer>();
 
         buildingPreview.SetActive(false);
     }
 
-    private void UpdateBuildingPreview()
+    public void UpdateBuildingPreview()
     {
         Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
 
@@ -75,10 +70,10 @@ public class BuildingButton : MonoBehaviour, IPointerDownHandler
 
     }
 
-    /*
+    
     public void PlaceBuilding()
     {
-        if (buildingPreviewInstance == null)
+        if (buildingPreview == null)
             return;
 
         if (Mouse.current.leftButton.wasPressedThisFrame)
@@ -87,19 +82,20 @@ public class BuildingButton : MonoBehaviour, IPointerDownHandler
 
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, groundMask))
             {
-                player.CmdTryToPlaceBuilding(building.GetBuildingId(), hit.point);
+                player.CmdTryPlaceBuilding(building.GetId(), hit.point);
             }
 
-            Destroy(buildingPreviewInstance);
+
+            Destroy(buildingPreview);
         }
 
         if (Mouse.current.rightButton.wasPressedThisFrame)
         {
-            Destroy(buildingPreviewInstance);
+            Destroy(buildingPreview);
         }
     }
 
-    */
+    
 
 
 }
