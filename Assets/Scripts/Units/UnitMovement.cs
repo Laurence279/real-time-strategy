@@ -53,6 +53,12 @@ public class UnitMovement : NetworkBehaviour
     public void CmdMove(Vector3 position)
     {
 
+        ServerMove(position);
+    }
+
+    [Server]
+    public void ServerMove(Vector3 position)
+    {
         targeter.ClearTarget();
 
         if (!NavMesh.SamplePosition(position, out NavMeshHit hit, 1f, NavMesh.AllAreas))

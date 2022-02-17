@@ -7,6 +7,7 @@ using UnityEngine.Events;
 
 public class Unit : NetworkBehaviour
 {
+    [SerializeField] private int goldCost = 10;
     [SerializeField] private Targeter targeter = null;
     [SerializeField] private UnityEvent onSelected = null;
     [SerializeField] private UnityEvent onDeselected = null;
@@ -22,7 +23,7 @@ public class Unit : NetworkBehaviour
 
 
 
-
+    public int GetGoldCost() => goldCost;
     public UnitMovement GetUnitMovement()
     {
         return unitMovement; 
