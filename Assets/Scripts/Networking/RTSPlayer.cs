@@ -6,25 +6,43 @@ using UnityEngine;
 
 public class RTSPlayer : NetworkBehaviour
 {
+    [SerializeField] private LayerMask buildingBlockLayer = new LayerMask();
     [SerializeField] private Building[] buildings = new Building[0];
+    [SerializeField] private float buildingRangeLimit = 5f;
 
     [SyncVar(hook = nameof(ClientHandleGoldUpdated))]
     private int gold = 500;
 
     public event Action<int> ClientOnGoldUpdated;
 
+    private Color teamColour = new Color();
     private List<Unit> myUnits = new List<Unit>();
     private List<Building> myBuildings = new List<Building>();
 
+    public Color GetTeamColour() => teamColour;
     public List<Unit> GetUnits() => myUnits;
     public List<Building> GetMyBuildings() => myBuildings;
 
     public int GetGold() => gold;
 
-    [Server]
-    public void SetGold(int value)
+
+
+    public bool CanPlaceBuilding(BoxCollider buildingCollider, Vector3 spawnLocation)
     {
-        gold = value;
+        if (Physics.CheckBox(spawnLocation + buildingCollider.center, buildingCollider.size / 2, Quaternion.identity, buildingBlockLayer))
+        {
+            return false;
+        }
+
+        foreach (Building building in myBuildings)
+        {
+            if ((spawnLocation - building.transform.position).sqrMagnitude <= buildingRangeLimit * buildingRangeLimit)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 
@@ -45,6 +63,15 @@ public class RTSPlayer : NetworkBehaviour
         Building.ServerOnBuildingDespawned -= ServerHandleBuildingDespawned;
     }
 
+    [Server]
+    public void SetTeamColour(Color newTeamColour) => teamColour = newTeamColour;
+
+    [Server]
+    public void SetGold(int value)
+    {
+        gold = value;
+    }
+
     [Command]
     public void CmdTryPlaceBuilding(int buildingId, Vector3 spawnLocation)
     {
@@ -61,8 +88,16 @@ public class RTSPlayer : NetworkBehaviour
 
         if(buildingToPlace == null) { return; }
 
+        if(gold < buildingToPlace.GetPrice()) { return; }
+
+        BoxCollider buildingCollider = buildingToPlace.GetComponent<BoxCollider>();
+
+        if(!CanPlaceBuilding(buildingCollider, spawnLocation)) { return; }
+
         GameObject buildingInstance = Instantiate(buildingToPlace.gameObject, spawnLocation, buildingToPlace.transform.rotation);
         NetworkServer.Spawn(buildingInstance, connectionToClient);
+
+        SetGold(gold - buildingToPlace.GetPrice());
     }
 
 

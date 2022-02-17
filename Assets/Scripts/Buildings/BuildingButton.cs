@@ -16,15 +16,16 @@ public class BuildingButton : MonoBehaviour
     [SerializeField] private LayerMask groundMask = new LayerMask();
 
     private Camera mainCamera;
+    private BoxCollider buildingCollider;
     private RTSPlayer player;
 
     private GameObject buildingPreview;
-    private Renderer buildingPreviewRenderer;
+    private Renderer[] buildingPreviewRenderers;
 
     private void Start()
     {
         mainCamera = Camera.main;
-
+        buildingCollider = building.GetComponent<BoxCollider>();
         iconImage.sprite = building.GetIcon();
         priceText.text = building.GetPrice().ToString();
     }
@@ -45,8 +46,11 @@ public class BuildingButton : MonoBehaviour
 
     public void Build()
     {
+
+        if(player.GetGold() < building.GetPrice()) { return; }
+
         buildingPreview = Instantiate(building.GetBuildingPreview());
-        buildingPreviewRenderer = buildingPreview.GetComponentInChildren<Renderer>();
+        buildingPreviewRenderers = buildingPreview.GetComponentsInChildren<Renderer>();
 
         buildingPreview.SetActive(false);
     }
@@ -64,9 +68,13 @@ public class BuildingButton : MonoBehaviour
             buildingPreview.SetActive(true);
         }
 
-        //Color color = player.CanPlaceBuilding(buildingCollider, hit.point) ? Color.green : Color.red;
+        Color color = player.CanPlaceBuilding(buildingCollider, hit.point) ? Color.green : Color.red;
 
-        //buildingPreviewRenderer.material.SetColor("_BaseColor", color);
+        foreach (Renderer renderer in buildingPreviewRenderers)
+        {
+            renderer.material.SetColor("_BaseColor", color);
+        }
+
 
     }
 
