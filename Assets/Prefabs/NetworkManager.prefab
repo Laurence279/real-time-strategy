@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8735717252137234084
+--- !u!1 &6962071227004040700
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8735717252137234080}
-  - component: {fileID: 8735717252137234087}
-  - component: {fileID: 8735717252137234085}
-  - component: {fileID: 8735717252137234086}
+  - component: {fileID: 6962071227004040696}
+  - component: {fileID: 6962071227004040703}
+  - component: {fileID: 6962071227004040701}
+  - component: {fileID: 6962071227004040702}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -19,13 +19,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8735717252137234080
+--- !u!4 &6962071227004040696
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8735717252137234084}
+  m_GameObject: {fileID: 6962071227004040700}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -33,13 +33,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8735717252137234087
+--- !u!114 &6962071227004040703
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8735717252137234084}
+  m_GameObject: {fileID: 6962071227004040700}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4751d3aea86ce6145ac0831284e56a86, type: 3}
@@ -50,9 +50,9 @@ MonoBehaviour:
   runInBackground: 1
   autoStartServerBuild: 1
   serverTickRate: 30
-  offlineScene: Assets/Scenes/Scene_Menu.unity
-  onlineScene: Assets/Scenes/Scene_Map01.unity
-  transport: {fileID: 8735717252137234086}
+  offlineScene: 
+  onlineScene: 
+  transport: {fileID: 6962071227004040702}
   networkAddress: localhost
   maxConnections: 100
   authenticator: {fileID: 0}
@@ -61,18 +61,20 @@ MonoBehaviour:
   playerSpawnMethod: 1
   spawnPrefabs:
   - {fileID: 5974795757435510650, guid: 608ee619eaba70c4ba97272339df1dcd, type: 3}
-  - {fileID: 8708465154392406838, guid: 1b94f1ba068ebf640b0751a9e44eb07f, type: 3}
+  - {fileID: 8465989179831357435, guid: bac86f46d8ace32459cd77c72f5b208b, type: 3}
   - {fileID: 4352808155737680276, guid: dec5687344410bc4cb4ec87f4b23ff23, type: 3}
   - {fileID: 8717009256159269921, guid: 74424eeb057cffb4d8195d1aca7a94ca, type: 3}
-  unitSpawnerPrefab: {fileID: 8708465154392406838, guid: 1b94f1ba068ebf640b0751a9e44eb07f, type: 3}
-  gameOverHandlerPrefab: {fileID: 1045979203981524183, guid: 74424eeb057cffb4d8195d1aca7a94ca, type: 3}
---- !u!114 &8735717252137234085
+  - {fileID: 8465989179831357435, guid: f359c1e8193f2714094c2435169a15bd, type: 3}
+  - {fileID: 8465989179831357435, guid: a8808045e70b2604f87852909570eba7, type: 3}
+  unitSpawnerPrefab: {fileID: 8465989179831357435, guid: bac86f46d8ace32459cd77c72f5b208b, type: 3}
+  gameOverHandlerPrefab: {fileID: 0}
+--- !u!114 &6962071227004040701
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8735717252137234084}
+  m_GameObject: {fileID: 6962071227004040700}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6442dc8070ceb41f094e44de0bf87274, type: 3}
@@ -80,13 +82,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offsetX: 0
   offsetY: 0
---- !u!114 &8735717252137234086
+--- !u!114 &6962071227004040702
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8735717252137234084}
+  m_GameObject: {fileID: 6962071227004040700}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
