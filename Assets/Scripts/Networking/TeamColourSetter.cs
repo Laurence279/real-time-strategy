@@ -6,6 +6,7 @@ using UnityEngine;
 public class TeamColourSetter : NetworkBehaviour
 {
     [SerializeField] private Renderer[] colourRenderers = new Renderer[0];
+    [SerializeField] private SpriteRenderer[] colourSpriteRenderers = new SpriteRenderer[0];
 
     [SyncVar(hook = nameof(HandleTeamColourUpdated))] 
     private Color teamColour = new Color();
@@ -28,6 +29,11 @@ public class TeamColourSetter : NetworkBehaviour
         foreach(Renderer renderer in colourRenderers)
         {
             renderer.material.SetColor("_BaseColor", newColour);
+        }
+
+        foreach (SpriteRenderer spriteRenderer in colourSpriteRenderers)
+        {
+            spriteRenderer.color = newColour;
         }
     }
 
