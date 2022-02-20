@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2931233258728963136}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children: []
   m_Father: {fileID: 5030549879046285691}
   m_RootOrder: 2
@@ -285,6 +285,7 @@ MonoBehaviour:
   colourRenderers:
   - {fileID: 7531487185664114491}
   - {fileID: 8514620188857144086}
+  colourSpriteRenderers: []
 --- !u!114 &6932866545869354629
 MonoBehaviour:
   m_ObjectHideFlags: 0

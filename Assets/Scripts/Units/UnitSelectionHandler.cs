@@ -2,6 +2,7 @@ using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class UnitSelectionHandler : MonoBehaviour
@@ -40,6 +41,7 @@ public class UnitSelectionHandler : MonoBehaviour
         if (player == null) { GetPlayer(); }
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
+            if (IsOverUI()) return;
             //Start selecting units with draggable area
             StartSelectionArea();
         }
@@ -51,6 +53,53 @@ public class UnitSelectionHandler : MonoBehaviour
         {
             UpdateSelectionArea();
         }
+    }
+
+    private bool IsOverUI()
+
+    {
+
+        if (EventSystem.current.IsPointerOverGameObject())
+
+        {
+
+            PointerEventData pointerData = new PointerEventData(EventSystem.current)
+
+            {
+
+                pointerId = -1,
+
+            };
+
+
+            pointerData.position = Input.mousePosition;
+
+
+            List<RaycastResult> results = new List<RaycastResult>();
+
+            EventSystem.current.RaycastAll(pointerData, results);
+
+
+            if (results.Count > 0)
+
+            {
+
+                for (int i = 0; i < results.Count; ++i)
+
+                {
+
+                    if (results[i].gameObject.CompareTag("UI"))
+
+                        return true;
+
+                }
+
+            }
+
+
+           return false;
+        }
+        return false;
     }
 
     private void ClearSelectionArea()
