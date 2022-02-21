@@ -73,6 +73,10 @@ public class BuildingButton : MonoBehaviour
         foreach (Renderer renderer in buildingPreviewRenderers)
         {
             renderer.material.SetColor("_BaseColor", color);
+            foreach (var material in renderer.materials)
+            {
+                material.color = color;
+            }
         }
 
 
