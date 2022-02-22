@@ -72,7 +72,10 @@ MonoBehaviour:
   buildings:
   - {fileID: 9171758418202840151, guid: 73e1f4a5f28907843ab1276e5a88bc3d, type: 3}
   - {fileID: 7289961486536218980, guid: a8808045e70b2604f87852909570eba7, type: 3}
-  buildingRangeLimit: 5
+  - {fileID: 9171758418202840151, guid: 08606a99b10fe7243972a2dc90c5d853, type: 3}
+  - {fileID: 9171758418202840151, guid: e358fb353efe76c4db506258d7e9f0ee, type: 3}
+  - {fileID: 9171758418202840151, guid: d6b798107e49a35429c98f44d59d1593, type: 3}
+  buildingRangeLimit: 12
 --- !u!114 &4150606776816637876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,7 +120,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1157111420058713265}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 20, z: 0}
+  m_LocalPosition: {x: 0, y: 20, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8714632038770099855}

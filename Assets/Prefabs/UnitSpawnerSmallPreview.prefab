@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 399022946033489191}
   m_Layer: 0
-  m_Name: UnitSpawnerNormalPreview
+  m_Name: UnitSpawnerSmallPreview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,15 +48,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6e4d8dfe03882c54380948659f725233, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6e4d8dfe03882c54380948659f725233, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6e4d8dfe03882c54380948659f725233, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6e4d8dfe03882c54380948659f725233, type: 3}
       propertyPath: m_LocalPosition.x
@@ -101,7 +101,7 @@ PrefabInstance:
     - target: {fileID: 3300000, guid: 6e4d8dfe03882c54380948659f725233, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 4300000, guid: f698f69d64c51f8438d853e5c274e5fc, type: 3}
+      objectReference: {fileID: 4300000, guid: e307cb54b57a59342868ad47d1ed0c30, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e4d8dfe03882c54380948659f725233, type: 3}
 --- !u!4 &6087791891015287736 stripped

@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 8618259959724949095}
   - component: {fileID: 7531487185664114491}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,7 +108,7 @@ Transform:
   m_GameObject: {fileID: 8155146266106040768}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 5030549879046285691}
   m_RootOrder: 1
@@ -120,7 +120,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8155146266106040768}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300002, guid: 7fa610bf2b9bccd48a9b3a6d79f90a37, type: 3}
 --- !u!23 &7531487185664114491
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -222,12 +222,16 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3219266372186720083, guid: 2ee4999096a98994384b122c7b39a7d1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219266372186720083, guid: 2ee4999096a98994384b122c7b39a7d1, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -0.75
       objectReference: {fileID: 0}
     - target: {fileID: 3219266372186720083, guid: 2ee4999096a98994384b122c7b39a7d1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3279251813551425657, guid: 2ee4999096a98994384b122c7b39a7d1, type: 3}
       propertyPath: m_Name

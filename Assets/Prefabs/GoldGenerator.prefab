@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
   m_Children: []
   m_Father: {fileID: 5984420972314777035}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &14031073782552878
 MeshFilter:
@@ -148,9 +148,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7082887685710989699, guid: 8be7a1567c8d4184d84c076af5c02ac0, type: 3}
   m_PrefabInstance: {fileID: 3038899120268412992}
   m_PrefabAsset: {fileID: 0}
---- !u!23 &175524445060440846 stripped
+--- !u!23 &7531487185664114491 stripped
 MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 2901373878806850382, guid: 8be7a1567c8d4184d84c076af5c02ac0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4803477229788133243, guid: 8be7a1567c8d4184d84c076af5c02ac0, type: 3}
   m_PrefabInstance: {fileID: 3038899120268412992}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6412847055599814530
@@ -218,7 +218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3219266372186720083, guid: 2ee4999096a98994384b122c7b39a7d1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3279251813551425657, guid: 2ee4999096a98994384b122c7b39a7d1, type: 3}
       propertyPath: m_Name
@@ -226,15 +226,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4455229029303901926, guid: 2ee4999096a98994384b122c7b39a7d1, type: 3}
       propertyPath: id
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4455229029303901926, guid: 2ee4999096a98994384b122c7b39a7d1, type: 3}
       propertyPath: icon
       value: 
-      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 21300000, guid: dc5ab491bd747fd49b9010aeb2195ca5, type: 3}
     - target: {fileID: 4455229029303901926, guid: 2ee4999096a98994384b122c7b39a7d1, type: 3}
       propertyPath: price
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4455229029303901926, guid: 2ee4999096a98994384b122c7b39a7d1, type: 3}
       propertyPath: buildingPreview
@@ -294,7 +294,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   colourRenderers:
-  - {fileID: 175524445060440846}
+  - {fileID: 7531487185664114491}
   - {fileID: 5590832127723233706}
   colourSpriteRenderers: []
 --- !u!114 &6135894339819051384

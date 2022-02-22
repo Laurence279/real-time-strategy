@@ -57,6 +57,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bdae60afd0a7714480aa6fa03910270, type: 3}
+--- !u!23 &13393688463265198 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 6bdae60afd0a7714480aa6fa03910270, type: 3}
+  m_PrefabInstance: {fileID: 1724316655606518058}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6360490217368015465
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64,6 +69,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8760945460913193926, guid: 608ee619eaba70c4ba97272339df1dcd, type: 3}
+      propertyPath: colourRenderers.Array.data[0]
+      value: 
+      objectReference: {fileID: 13393688463265198}
     - target: {fileID: 380493898341106103, guid: 608ee619eaba70c4ba97272339df1dcd, type: 3}
       propertyPath: m_LocalScale.x
       value: 4.720538
@@ -134,7 +143,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4148256676657969220, guid: 608ee619eaba70c4ba97272339df1dcd, type: 3}
       propertyPath: m_Acceleration
-      value: 4
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4148256676657969220, guid: 608ee619eaba70c4ba97272339df1dcd, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4148256676657969220, guid: 608ee619eaba70c4ba97272339df1dcd, type: 3}
       propertyPath: m_StoppingDistance

@@ -121,6 +121,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4148256676657969220, guid: 608ee619eaba70c4ba97272339df1dcd, type: 3}
+      propertyPath: m_Speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4148256676657969220, guid: 608ee619eaba70c4ba97272339df1dcd, type: 3}
+      propertyPath: m_Acceleration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4148256676657969220, guid: 608ee619eaba70c4ba97272339df1dcd, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4820110546802149128, guid: 608ee619eaba70c4ba97272339df1dcd, type: 3}
       propertyPath: sceneId
       value: 0

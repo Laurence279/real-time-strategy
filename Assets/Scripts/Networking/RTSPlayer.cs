@@ -9,7 +9,7 @@ public class RTSPlayer : NetworkBehaviour
     [SerializeField] private Transform cameraTransform = null;
     [SerializeField] private LayerMask buildingBlockLayer = new LayerMask();
     [SerializeField] private Building[] buildings = new Building[0];
-    [SerializeField] private float buildingRangeLimit = 8f;
+    [SerializeField] private float buildingRangeLimit = 100f;
 
     [SyncVar(hook = nameof(ClientHandleGoldUpdated))]
     private int gold = 500;
@@ -43,7 +43,7 @@ public class RTSPlayer : NetworkBehaviour
                 return true;
             }
         }
-
+        Debug.Log("false");
         return false;
     }
 
