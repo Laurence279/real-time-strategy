@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6962071227004040696}
   - component: {fileID: 6962071227004040703}
-  - component: {fileID: 6962071227004040701}
   - component: {fileID: 6962071227004040702}
   m_Layer: 0
   m_Name: NetworkManager
@@ -50,8 +49,8 @@ MonoBehaviour:
   runInBackground: 1
   autoStartServerBuild: 1
   serverTickRate: 30
-  offlineScene: 
-  onlineScene: 
+  offlineScene: Assets/Scenes/Scene_Menu.unity
+  onlineScene: Assets/Scenes/Scene_Map01.unity
   transport: {fileID: 6962071227004040702}
   networkAddress: localhost
   maxConnections: 100
@@ -60,28 +59,20 @@ MonoBehaviour:
   autoCreatePlayer: 1
   playerSpawnMethod: 1
   spawnPrefabs:
-  - {fileID: 5974795757435510650, guid: 608ee619eaba70c4ba97272339df1dcd, type: 3}
   - {fileID: 8465989179831357435, guid: bac86f46d8ace32459cd77c72f5b208b, type: 3}
-  - {fileID: 4352808155737680276, guid: dec5687344410bc4cb4ec87f4b23ff23, type: 3}
   - {fileID: 8717009256159269921, guid: 74424eeb057cffb4d8195d1aca7a94ca, type: 3}
-  - {fileID: 8465989179831357435, guid: f359c1e8193f2714094c2435169a15bd, type: 3}
   - {fileID: 8465989179831357435, guid: a8808045e70b2604f87852909570eba7, type: 3}
+  - {fileID: 770042086516133139, guid: 28c9455d5c2cb1349880313bcdeda4ef, type: 3}
+  - {fileID: 8007040300907158216, guid: 73e1f4a5f28907843ab1276e5a88bc3d, type: 3}
+  - {fileID: 2084227106278041349, guid: 36dc68d74cd6eed4790d455c35418638, type: 3}
+  - {fileID: 770042086516133139, guid: bdf67b79da019d045b82ba22e93a8418, type: 3}
+  - {fileID: 770042086516133139, guid: 4bc41703b9feef148a0933e3cfb40780, type: 3}
+  - {fileID: 770042086516133139, guid: dcc85b554d166e3449b661d5593e4510, type: 3}
+  - {fileID: 8007040300907158216, guid: d6b798107e49a35429c98f44d59d1593, type: 3}
+  - {fileID: 8007040300907158216, guid: e358fb353efe76c4db506258d7e9f0ee, type: 3}
+  - {fileID: 8007040300907158216, guid: 08606a99b10fe7243972a2dc90c5d853, type: 3}
   unitSpawnerPrefab: {fileID: 8465989179831357435, guid: bac86f46d8ace32459cd77c72f5b208b, type: 3}
-  gameOverHandlerPrefab: {fileID: 0}
---- !u!114 &6962071227004040701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6962071227004040700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6442dc8070ceb41f094e44de0bf87274, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offsetX: 0
-  offsetY: 0
+  gameOverHandlerPrefab: {fileID: 1045979203981524183, guid: 74424eeb057cffb4d8195d1aca7a94ca, type: 3}
 --- !u!114 &6962071227004040702
 MonoBehaviour:
   m_ObjectHideFlags: 0
