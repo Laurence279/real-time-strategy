@@ -21,8 +21,8 @@ public class UnitSelectionHandler : MonoBehaviour
     private void Start()
     {
         mainCamera = Camera.main;
+        player = NetworkClient.connection.identity.GetComponent<RTSPlayer>();
         Unit.AuthorityOnUnitDespawned += AuthorityHandleUnitDespawned;
-        Invoke(nameof(GetPlayer), 0.1f);
         GameOverHandler.ClientOnGameOver += ClientHandleGameOver;
     }
 
@@ -32,13 +32,10 @@ public class UnitSelectionHandler : MonoBehaviour
         GameOverHandler.ClientOnGameOver -= ClientHandleGameOver;
     }
 
-    private void GetPlayer()
-    {
-        player = NetworkClient.connection.identity.GetComponent<RTSPlayer>();
-    }
+
     private void Update()
     {
-        if (player == null) { GetPlayer(); }
+
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             if (IsOverUI()) return;

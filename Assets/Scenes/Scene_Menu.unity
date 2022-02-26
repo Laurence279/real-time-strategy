@@ -721,6 +721,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1614140498, guid: da76a16750041864fa5b062b432a7fc2, type: 3}
+      propertyPath: SteamAppID
+      value: 480
+      objectReference: {fileID: 0}
     - target: {fileID: 6962071227004040696, guid: da76a16750041864fa5b062b432a7fc2, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -768,10 +772,6 @@ PrefabInstance:
     - target: {fileID: 6962071227004040700, guid: da76a16750041864fa5b062b432a7fc2, type: 3}
       propertyPath: m_Name
       value: NetworkManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 6962071227004040703, guid: da76a16750041864fa5b062b432a7fc2, type: 3}
-      propertyPath: onlineScene
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da76a16750041864fa5b062b432a7fc2, type: 3}
@@ -1342,6 +1342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   landingPagePanel: {fileID: 1811334277}
+  useSteam: 1
 --- !u!1 &767318039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1980,7 +1981,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 926944201}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1940666427}
+        m_TargetAssemblyTypeName: LobbyMenu, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &926944201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4334,6 +4347,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lobbyUI: {fileID: 973415480}
+  startGameButton: {fileID: 926944200}
+  playerNameTexts:
+  - {fileID: 767318041}
+  - {fileID: 1126728982}
+  - {fileID: 235081391}
+  - {fileID: 1205170780}
 --- !u!1 &2034654826
 GameObject:
   m_ObjectHideFlags: 0

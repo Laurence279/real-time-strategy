@@ -24,19 +24,16 @@ public class BuildingButton : MonoBehaviour
 
     private void Start()
     {
+
         mainCamera = Camera.main;
         buildingCollider = building.GetComponent<BoxCollider>();
         iconImage.sprite = building.GetIcon();
         priceText.text = building.GetPrice().ToString();
+        player = NetworkClient.connection.identity.GetComponent<RTSPlayer>();
     }
 
     private void Update()
     {
-        if(player == null)
-        {
-            player = NetworkClient.connection.identity.GetComponent<RTSPlayer>();
-        }
-
         if (buildingPreview == null) { return; }
 
 

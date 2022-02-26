@@ -87,6 +87,10 @@ PrefabInstance:
       propertyPath: rotateSpeed
       value: 70
       objectReference: {fileID: 0}
+    - target: {fileID: 5035672511909023945, guid: 608ee619eaba70c4ba97272339df1dcd, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 2084227106278041349, guid: 36dc68d74cd6eed4790d455c35418638, type: 3}
     - target: {fileID: 5612452685604428876, guid: 608ee619eaba70c4ba97272339df1dcd, type: 3}
       propertyPath: maxHealth
       value: 50

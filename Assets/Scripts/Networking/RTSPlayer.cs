@@ -11,15 +11,24 @@ public class RTSPlayer : NetworkBehaviour
     [SerializeField] private Building[] buildings = new Building[0];
     [SerializeField] private float buildingRangeLimit = 100f;
 
+    [SyncVar(hook = nameof(ClientHandleDisplayNameUpdated))]
+    private string displayName;
     [SyncVar(hook = nameof(ClientHandleGoldUpdated))]
     private int gold = 500;
+    [SyncVar(hook = nameof(AuthorityHandlePartyOwnerStateUpdated))]
+    private bool isPartyOwner = false;
 
     public event Action<int> ClientOnGoldUpdated;
+
+    public static event Action ClientOnInfoUpdated;
+    public static event Action<bool> AuthorityOnPartyOwnerStateUpdated;
 
     private Color teamColour = new Color();
     private List<Unit> myUnits = new List<Unit>();
     private List<Building> myBuildings = new List<Building>();
 
+    public string GetDisplayName() => displayName;
+    public bool GetIsPartyOwner() => isPartyOwner;
     public Transform GetCameraTransform() => cameraTransform;
     public Color GetTeamColour() => teamColour;
     public List<Unit> GetUnits() => myUnits;
@@ -43,7 +52,6 @@ public class RTSPlayer : NetworkBehaviour
                 return true;
             }
         }
-        Debug.Log("false");
         return false;
     }
 
@@ -55,6 +63,8 @@ public class RTSPlayer : NetworkBehaviour
         Unit.ServerOnUnitDespawned += ServerHandleUnitDespawned;
         Building.ServerOnBuildingSpawned += ServerHandleBuildingSpawned;
         Building.ServerOnBuildingDespawned += ServerHandleBuildingDespawned;
+
+        DontDestroyOnLoad(gameObject);
     }
 
     public override void OnStopServer()
@@ -66,12 +76,31 @@ public class RTSPlayer : NetworkBehaviour
     }
 
     [Server]
+    public void SetPartyOwner(bool state)
+    {
+        isPartyOwner = state;
+    }
+
+    [Server]
     public void SetTeamColour(Color newTeamColour) => teamColour = newTeamColour;
 
     [Server]
     public void SetGold(int value)
     {
         gold = value;
+    }
+
+    [Server]
+    public void SetDisplayName(string name)
+    {
+        this.displayName = name;
+    }
+
+    [Command]
+    public void CmdStartGame()
+    {
+        if (!isPartyOwner) { return; }
+        ((RTSNetworkManager)NetworkManager.singleton).StartGame();
     }
 
     [Command]
@@ -135,16 +164,28 @@ public class RTSPlayer : NetworkBehaviour
 
     public override void OnStartAuthority()
     {
-        if(NetworkServer.active) { return; }
+        if(NetworkServer.active) { return; } // Dont run if this player is running as the host/server
         Unit.AuthorityOnUnitSpawned += AuthorityHandleUnitSpawned;
         Unit.AuthorityOnUnitDespawned += AuthorityHandleUnitDespawned;
         Building.AuthorityOnBuildingSpawned += AuthorityHandleBuildingSpawned;
         Building.AuthorityOnBuildingDespawned -= AuthorityHandleBuildingDespawned;
     }
 
+    public override void OnStartClient()
+    {
+        if (NetworkServer.active) { return; }
+        DontDestroyOnLoad(gameObject);
+        ((RTSNetworkManager)NetworkManager.singleton).Players.Add(this);
+    }
+
     public override void OnStopClient()
     {
-        if (!isClientOnly || !hasAuthority) { return; }
+        ClientOnInfoUpdated?.Invoke();
+
+        if (!isClientOnly) { return; }
+        ((RTSNetworkManager)NetworkManager.singleton).Players.Remove(this); //Do this for everyone, including server
+
+        if(!hasAuthority) { return; }
         Unit.AuthorityOnUnitSpawned += AuthorityHandleUnitSpawned;
         Unit.AuthorityOnUnitDespawned += AuthorityHandleUnitDespawned;
         Building.AuthorityOnBuildingSpawned += AuthorityHandleBuildingSpawned;
@@ -154,6 +195,11 @@ public class RTSPlayer : NetworkBehaviour
     private void ClientHandleGoldUpdated(int oldValue, int newValue)
     {
         ClientOnGoldUpdated?.Invoke(newValue);
+    }
+
+    private void ClientHandleDisplayNameUpdated(string oldName, string newName)
+    {
+        ClientOnInfoUpdated?.Invoke();
     }
 
     private void AuthorityHandleUnitSpawned(Unit unit)
@@ -174,5 +220,11 @@ public class RTSPlayer : NetworkBehaviour
         myBuildings.Remove(building);
     }
 
+    private void AuthorityHandlePartyOwnerStateUpdated(bool oldState, bool newState)
+    {
+        if (!hasAuthority) { return; }
+        AuthorityOnPartyOwnerStateUpdated?.Invoke(newState);
+
+    }
     #endregion
 }
